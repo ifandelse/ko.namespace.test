@@ -1,0 +1,25 @@
+.container {
+    font-family: Arial;
+    padding-top: 25px;
+}
+
+.menu-container {
+    
+}
+
+.menu ul {
+    display: inline;
+}
+
+.menu li {
+    float: left;
+    list-style-type: none;
+}
+
+.menu li {
+    
+}
+
+menu li:hover {
+    text-decoration: underline;
+}
