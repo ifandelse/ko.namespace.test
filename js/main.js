@@ -93,11 +93,13 @@ var MainViewModel = function() {
 }
 
 $(function() {
-    ko.externaljQueryTemplateEngine.setOptions({
-        templateUrl: "template",
-        templatePrefix: "",
-        templateSuffix: ".html"
-    });
+    if(ko.externaljQueryTemplateEngine) {
+        ko.externaljQueryTemplateEngine.setOptions({
+            templateUrl: "template",
+            templatePrefix: "",
+            templateSuffix: ".html"
+        });
+    }
     window.viewModel = new MainViewModel();
     ko.applyBindings(viewModel);
     hasher.init();

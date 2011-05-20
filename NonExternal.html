@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>KO Namespace Troubleshooting</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="js/jquery-1.5.2.js"></script>
+    <script type="text/javascript" src="js/jquery.tmpl.js"></script>
+    <script type="text/javascript" src="js/amplify.core.js"></script>
+    <script type="text/javascript" src="js/amplify.request.js"></script>
+    <script type="text/javascript" src="js/knockout-latest.debug.js"></script>
+    <script type="text/javascript" src="js/knockout.mapping-latest.debug.js"></script>
+    <script type="text/javascript" src="js/knockout.namespaces-latest.debug.js"></script>
+    <script type="text/javascript" src="js/js-signals.js"></script>
+    <script type="text/javascript" src="js/crossroads.js"></script>
+    <script type="text/javascript" src="js/Hasher.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/html" id="Accessory">
+        <li data-bind-product="click: function() { alert('you clicked on ' + this.name }">
+            <span data-bind-product="text: name"></span>:&nbsp;<span data-bind-product="text: description"></span>
+            ${ name }
+        </li>
+    </script>
+    <script type="text/html" id="Customer">
+        <div>
+            Customer Name:&nbsp;<span data-bind-customer="text: customerName" /> <br/>
+            Sales Rep:&nbsp;<span data-bind-customer="text: salesRep" />
+        </div>
+    </script>
+    <script type="text/html" id="Default">
+        <h4>Hey There....</h4>
+        <p>You need to make a menu selection.</p>
+    </script>
+    <script type="text/html" id="Menu">
+        <li data-bind="click: function() { viewModel.onNavigation(this.link); }">&nbsp;&nbsp;<span data-bind="text: label"></span>&nbsp;&nbsp;|</li>
+    </script>
+    <script type="text/html" id="Product">
+        <div>
+            Product:&nbsp;<span data-bind-product="text: productName"></span><br/>
+            Description:&nbsp;<span data-bind-product="text: description"></span><br/>
+            <ul data-bind-product="template: {name: 'Accessory', foreach: accessories }"></ul>
+        </div>
+    </script>
+    <script type="text/html" id="User">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><span data-bind-user="text: fullName"></span></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><span data-bind-user="text: email"></span></td>
+            </tr>
+        </table>
+    </script>
+</head>
+<body>
+    <div class="menu-container">
+        <ul class="menu" data-bind="template: { name: 'Menu', foreach: menu }"></ul>
+    </div>
+    <br clear="all" />
+    <div class="container" data-bind="template: { name: templateOption }">
+
+    </div>
+</body>
+</html>
