@@ -33,7 +33,7 @@
         <ul data-bind="template: { name: 'Random', foreach: randomStuff }"></ul>
     </script>
     <script type="text/html" id="Menu">
-        <li data-bind="click: function() { viewModel.onNavigation(this.link); }">&nbsp;&nbsp;<span data-bind="text: label"></span>&nbsp;&nbsp;|</li>
+        <li data-bind="click: function() { window.vm.onNavigation(this.link); }">&nbsp;&nbsp;<span data-bind="text: label"></span>&nbsp;&nbsp;|</li>
     </script>
     <script type="text/html" id="Product">
         <div>

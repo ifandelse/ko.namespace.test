@@ -21,9 +21,9 @@ var exGetProductResponse = {
 
 // Set up mock requests
 amplify.request.define("getUser", function(settings){
-    var vm = ko.mapping.fromJS(exGetUserResponse);
-    vm.fullName = ko.dependentObservable(function() { return this.firstName() + ' ' + this.lastName(); }, vm);
-    settings.success(vm);
+    var _vm = ko.mapping.fromJS(exGetUserResponse);
+    _vm.fullName = ko.dependentObservable(function() { return this.firstName() + ' ' + this.lastName(); }, _vm);
+    settings.success(_vm);
 });
 
 amplify.request.define("getCustomer", function(settings){
@@ -40,8 +40,8 @@ var RouteManager = function(vm) {
 
     this.WireUp = function(reqKey, ns, template) {
         amplify.request(reqKey, function(data) {
-            _vm.activeTemplate(template);
             ko.applyBindings(data, ns);
+            _vm.activeTemplate(template);
         });
     };
 
@@ -119,8 +119,8 @@ $(function() {
             templateSuffix: ".html"
         });
     }
-    window.viewModel = new MainViewModel();
-    ko.applyBindings(viewModel);
+    window.vm = new MainViewModel();
+    ko.applyBindings(vm);
     hasher.init();
     var hash = hasher.getHash();
     if(hash) {
