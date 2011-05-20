@@ -89,6 +89,25 @@ var MainViewModel = function() {
         return false;
     };
 
+    this.randomStuff = ko.observableArray([
+        {
+            title: "Something",
+            children: [
+                {label: "LabelA"},
+                {label: "LabelB"},
+                {label: "LabelC"},
+            ]
+        },
+        {
+            title: "Another",
+            children: [
+                {label: "Blah"},
+                {label: "Bleh"},
+                {label: "Ummm?"},
+            ]
+        }
+    ]);
+
     hasher.changed.add(this.handleHashChange);
 }
 

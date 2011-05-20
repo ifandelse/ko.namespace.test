@@ -29,7 +29,8 @@
     </script>
     <script type="text/html" id="Default">
         <h4>Hey There....</h4>
-        <p>You need to make a menu selection.</p>
+        <p>You need to make a menu selection....above</p>
+        <ul data-bind="template: { name: 'Random', foreach: randomStuff }"></ul>
     </script>
     <script type="text/html" id="Menu">
         <li data-bind="click: function() { viewModel.onNavigation(this.link); }">&nbsp;&nbsp;<span data-bind="text: label"></span>&nbsp;&nbsp;|</li>
@@ -40,6 +41,14 @@
             Description:&nbsp;<span data-bind-product="text: description"></span><br/>
             <ul data-bind-product="template: {name: 'Accessory', foreach: accessories }"></ul>
         </div>
+    </script>
+    <script type="text/html" id="Random">
+        <div data-bind="text: title"></div>
+        Children:
+        <ul data-bind="template: { name: 'RandomChild', foreach: children }" ></ul>
+    </script>
+    <script type="text/html" id="RandomChild">
+        <li><span data-bind="text: label"></span></li>
     </script>
     <script type="text/html" id="User">
         <table>
