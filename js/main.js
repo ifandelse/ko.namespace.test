@@ -40,8 +40,8 @@ var RouteManager = function(vm) {
 
     this.WireUp = function(reqKey, ns, template) {
         amplify.request(reqKey, function(data) {
-            ko.applyBindings(data, ns);
             _vm.activeTemplate(template);
+            ko.applyBindings(data, ns);
         });
     };
 
