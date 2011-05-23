@@ -1710,7 +1710,8 @@ ko.templateEngine = function () {
 ko.exportSymbol('ko.templateEngine', ko.templateEngine);
 
 ko.templateRewriting = (function () {
-    var memoizeBindingAttributeSyntaxRegex = /(<[a-z]+\d*(\s+(?!data-bind[a-z0-9\-]*=)[a-z0-9\-]+(=(\"[^\"]*\"|\'[^\']*\'))?)*\s+)data-bind[a-z0-9\-]*=(["'])([\s\S]*?)\5/gi;
+    var memoizeBindingAttributeSyntaxRegex = /(<[a-z]+\d*(\s+(?!data-bind=)[a-z0-9\-]+(=(\"[^\"]*\"|\'[^\']*\'))?)*\s+)data-bind=(["'])([\s\S]*?)\5/gi;
+
     return {
         ensureTemplateIsRewritten: function (template, templateEngine) {
             if (!templateEngine['isTemplateRewritten'](template))
